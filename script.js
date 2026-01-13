@@ -9,7 +9,10 @@ function checkPassword(){
   if(input === "sayang"){ // 🔐 GANTI PASSWORD DI SINI
     document.getElementById("passwordPage").classList.remove("active");
     document.getElementById("page1").classList.add("active");
-    music.play();
+
+    // ▶️ PLAY MUSIK SETELAH KLIK (AMAN BROWSER)
+    music.volume = 0.7;
+    music.play().catch(()=>{});
   }else{
     error.style.display = "block";
   }
@@ -24,10 +27,14 @@ function nextPage(){
 
 /* MUSIC */
 function toggleMusic(){
-  music.paused ? music.play() : music.pause();
+  if(music.paused){
+    music.play();
+  }else{
+    music.pause();
+  }
 }
 
-/* HATI TERBANG */
+/* ❤️ HATI TERBANG */
 const hearts = document.querySelector(".hearts");
 
 setInterval(()=>{
