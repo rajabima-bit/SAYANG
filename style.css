@@ -1,0 +1,130 @@
+body{
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:linear-gradient(135deg,#ffd6e8,#fff0f6);
+  overflow:hidden;
+}
+
+/* INPUT PASSWORD */
+input{
+  padding:12px;
+  border-radius:15px;
+  border:1px solid #ff8fab;
+  outline:none;
+  text-align:center;
+  margin-top:10px;
+}
+
+#error{
+  color:red;
+  display:none;
+  margin-top:10px;
+}
+
+/* CONTAINER */
+.container{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+  opacity:0;
+  transform:scale(0.9);
+  transition:all 0.8s ease;
+  pointer-events:none;
+}
+
+.container.active{
+  opacity:1;
+  transform:scale(1);
+  pointer-events:auto;
+}
+
+/* BUTTON */
+button{
+  margin-top:20px;
+  padding:12px 20px;
+  border:none;
+  border-radius:20px;
+  background:#ff8fab;
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button:hover{
+  background:#ff5d8f;
+  transform:scale(1.05);
+}
+
+/* ANIMASI TEKS */
+.fade{
+  animation:fadeIn 1.5s ease forwards;
+}
+
+.delay{
+  animation-delay:1s;
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(20px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* TYPING */
+.typing{
+  width:80%;
+  font-size:20px;
+  animation:typing 4s steps(40), blink .7s infinite;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right:3px solid pink;
+}
+
+@keyframes typing{
+  from{width:0;}
+  to{width:80%;}
+}
+
+@keyframes blink{
+  50%{border-color:transparent;}
+}
+
+/* FOTO */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(2,120px);
+  gap:10px;
+  margin-top:20px;
+}
+
+.gallery img{
+  width:120px;
+  height:120px;
+  object-fit:cover;
+  border-radius:15px;
+  animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+/* ❤️ HATI TERBANG */
+.hearts span{
+  position:absolute;
+  bottom:-20px;
+  color:#ff5d8f;
+  font-size:20px;
+  animation:fly 6s linear infinite;
+}
+
+@keyframes fly{
+  from{transform:translateY(0); opacity:1;}
+  to{transform:translateY(-100vh); opacity:0;}
+}
