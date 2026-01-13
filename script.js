@@ -1,20 +1,37 @@
 let current = 1;
 const music = document.getElementById("music");
 
-/* PASSWORD */
 function checkPassword(){
   const input = document.getElementById("passwordInput").value;
   const error = document.getElementById("error");
 
-  if(input === "sayang"){ // 🔐 GANTI PASSWORD DI SINI
+  if(input === "sayang"){
+
+    // 🔑 KUNCI UTAMA: PLAY LANGSUNG DARI KLIK
+    music.muted = false;
+    music.volume = 0.8;
+    music.play();
+
+    // BARU UBAH TAMPILAN
     document.getElementById("passwordPage").classList.remove("active");
     document.getElementById("page1").classList.add("active");
 
-    // ▶️ PLAY MUSIK SETELAH KLIK (AMAN BROWSER)
-    music.volume = 95;
-    music.play().catch(()=>{});
-  }else{
+  } else {
     error.style.display = "block";
+  }
+}
+
+function nextPage(){
+  document.getElementById(`page${current}`).classList.remove("active");
+  current++;
+  document.getElementById(`page${current}`).classList.add("active");
+}
+
+function toggleMusic(){
+  if(music.paused){
+    music.play();
+  } else {
+    music.pause();
   }
 }
 
