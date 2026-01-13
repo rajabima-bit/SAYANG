@@ -11,7 +11,7 @@ function checkPassword(){
     document.getElementById("page1").classList.add("active");
 
     // ▶️ PLAY MUSIK SETELAH KLIK (AMAN BROWSER)
-    music.volume = 0.7;
+    music.volume = 95;
     music.play().catch(()=>{});
   }else{
     error.style.display = "block";
